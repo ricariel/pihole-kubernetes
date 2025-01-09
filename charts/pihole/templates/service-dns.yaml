@@ -18,6 +18,11 @@ metadata:
 {{- end }}
 spec:
   type: {{ .Values.serviceDns.type }}
+  ipFamilies:
+    - IPv4
+    - IPv6
+  ipFamilyPolicy: PreferDualStack
+
   {{- if .Values.serviceDns.loadBalancerIP }}
   loadBalancerIP: {{ .Values.serviceDns.loadBalancerIP }}
   {{- end }}
